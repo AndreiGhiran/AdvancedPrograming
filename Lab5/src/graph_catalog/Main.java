@@ -1,4 +1,4 @@
-package lab4;
+package graph_catalog;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

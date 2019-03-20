@@ -1,4 +1,6 @@
-package lab4;
+package graph_catalog;
+
+
 
 import java.awt.Desktop;
 import java.io.BufferedReader;
