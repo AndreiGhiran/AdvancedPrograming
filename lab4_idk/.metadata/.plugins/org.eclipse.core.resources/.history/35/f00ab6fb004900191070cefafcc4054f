@@ -1,0 +1,43 @@
+package lab4;
+
+import java.awt.Desktop;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Catalog extends Graph{
+
+	String path;
+	ArrayList<Graph> graphs = new ArrayList<Graph>();
+	
+	Catalog(String path)
+	{
+		this.path=path;
+	}
+	
+	public void add(Graph graph) {
+		
+		graphs.add(graph);
+	}
+
+	public void open(String name) {
+		
+		for (int i = 0; i < graphs.size(); i++) {
+			if(graphs.get(i).name==name) {
+				
+				if (Desktop.isDesktopSupported()) {
+				    try {
+				        File myFile = new File(path+graphs.get(i).image);
+				        Desktop.getDesktop().open(myFile);
+				    } catch (IOException ex) {
+				        // no application registered for PDFs
+				    }
+				}
+			}
+		}
+	}
+	
+
+}

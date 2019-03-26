@@ -1,0 +1,23 @@
+package lab4;
+
+import java.awt.List;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+
+public class Catalog extends Graph{
+
+	ArrayList<Graph> graphs = new ArrayList<Graph>();
+	
+	Catalog(String path)
+	{
+		
+	}
+	
+	
+	public void Add(Graph graph )
+	{
+		
+	}
+
+}

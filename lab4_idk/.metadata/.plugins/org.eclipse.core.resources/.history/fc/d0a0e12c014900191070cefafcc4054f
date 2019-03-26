@@ -1,0 +1,12 @@
+package lab4;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Catalog c=new Catalog("C:\\Users\\User\\Desktop\\Uni\\pa\\lab4\\graphs");
+		c.add(new Graph("k4", "k4.tgf", "k4.pdf"));
+		c.open("k4");
+	}
+
+}

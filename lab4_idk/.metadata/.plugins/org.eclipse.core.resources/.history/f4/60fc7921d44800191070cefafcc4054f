@@ -1,0 +1,36 @@
+package lab4;
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class Graph extends GraphIO{
+
+	String name;
+	String tgf;
+	String png;
+	Graph(String name, String tgf, String png)
+	{
+		this.name=name;
+		this.tgf=tgf;
+		this.png=png;
+	}
+	public Graph() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	/*public void openFile(String name)
+	{
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(name);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DataInputStream in = new DataInputStream(fis);
+	}
+	*/
+}
