@@ -7,7 +7,7 @@ import javax.swing.border.TitledBorder;
 
 public class GraphForm extends JPanel {
 	
-    private final CatalogFrame frame = new CatalogFrame();
+    private final CatalogFrame frame;
 
     String[] tipes = {"simple", "directed"};
     TextField nameTextField = new TextField(70);
@@ -24,14 +24,16 @@ public class GraphForm extends JPanel {
     JLabel graphType = new JLabel("Graph type");
     JLabel vericesNr = new JLabel("Number of verceces");
     JLabel edgesNr = new JLabel("Number of edges");
-    public GraphForm()
-    { 	
+    
+    public GraphForm(CatalogFrame frame) {
+        this.frame = frame;
+    	init();
+    }
+    
+    private void init() {
     	GridBagLayout gridBag = new GridBagLayout();
-    	this.frame.setSize(565,350);
-    	this.frame.setLayout(gridBag);
-    	JPanel addGraphPanel = new JPanel();
     	JPanel graphInfoPanel = new JPanel();
-    	addGraphPanel.setLayout(gridBag);
+    	this.setLayout(gridBag);
     	graphInfoPanel.setLayout(new FlowLayout());
     	TitledBorder border = new TitledBorder("Add graph");
     	
@@ -42,9 +44,7 @@ public class GraphForm extends JPanel {
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=0;
-    	c.weightx=1;
-    	c.weighty=1;
-    	addGraphPanel.add(nameLabel, c);
+    	this.add(nameLabel, c);
         
         c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -52,45 +52,31 @@ public class GraphForm extends JPanel {
     	c.gridy=1;
     	c.weightx=2;
     	c.weighty=2;
-    	addGraphPanel.add(nameTextField, c);
+    	this.add(nameTextField, c);
     	
     	c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=2;
-    	c.weightx=3;
-    	c.weighty=3;
-    	addGraphPanel.add(definitionPath,c);
+    	this.add(definitionPath,c);
     	
     	c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=3;
-    	c.weightx=4;
-    	c.weighty=4;
-    	addGraphPanel.add(defPathTextField, c);
+    	this.add(defPathTextField, c);
     	
     	c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=4;
-    	c.weightx=5;
-    	c.weighty=5;
-    	addGraphPanel.add(imagePath,c);
+    	this.add(imagePath,c);
     	
     	c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=5;
-    	c.weightx=6;
-    	c.weighty=6;
-    	addGraphPanel.add(imgPathTextField, c);
-    	
-    	JButton addGraphButt = new JButton("Add to repository");
-    	c = new GridBagConstraints();
-    	c.gridx=0;
-    	c.gridy=7;
-    	addGraphPanel.add(addGraphButt,c);
+    	this.add(imgPathTextField, c);
     	
     	graphInfoPanel.add(graphType);
     	graphInfoPanel.add(graphT);
@@ -103,39 +89,21 @@ public class GraphForm extends JPanel {
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=6;
-    	addGraphPanel.add(graphInfoPanel, c);
+    	this.add(graphInfoPanel, c);
     	
-    	addGraphPanel.setBorder(border);
-    	
+    	JButton addGraphButt = new JButton("Add to repository");
     	c = new GridBagConstraints();
-    	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
-    	c.gridy=0;
-    	frame.add(addGraphPanel, c);
+    	c.gridy=7;
+    	this.add(addGraphButt,c);
     	
-    	CatalogList list = new CatalogList();
-    	list.addGraph("ceva");
-    	c = new GridBagConstraints();
-    	c.fill = GridBagConstraints.BOTH;
-    	c.gridx=0;
-    	c.gridy=1;
-    	frame.add(list, c);
     	
-    	c = new GridBagConstraints();
-    	c.fill = GridBagConstraints.HORIZONTAL;
-    	c.gridx=0;
-    	c.gridy=2;
-    
-    	frame.add(new ControlPanel(frame),c);
-    	
-       	this.frame.setVisible(true);
-    	
-    }
-    
-    private void init() {               
+    	this.setBorder(border);
+      	
         //...
     //    addButton.addActionListener(//...);
     }
+    
     private void addGraph() {
      //   frame.list.addGraph(//...);
     }
