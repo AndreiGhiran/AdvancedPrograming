@@ -11,8 +11,8 @@ public class GraphForm extends JPanel {
 
     String[] tipes = {"simple", "directed"};
     TextField nameTextField = new TextField(70);
-    TextField defPathTextField = new TextField(20);
-    TextField imgPathTextField = new TextField(20);
+    TextField defPathTextField = new TextField(70);
+    TextField imgPathTextField = new TextField(70);
     
     JComboBox graphT = new JComboBox(tipes);
     JSpinner verticesField = new JSpinner(new SpinnerNumberModel(0,0, 1000,1));
@@ -28,7 +28,7 @@ public class GraphForm extends JPanel {
     { 	
     	GridBagLayout gridBag = new GridBagLayout();
     	this.frame.setSize(550,450);
-    	this.frame.setLayout(new FlowLayout());
+    	this.frame.setLayout(gridBag);
     	JPanel addGraphPanel = new JPanel();
     	JPanel graphListPanel = new JPanel();
     	addGraphPanel.setLayout(gridBag);
@@ -36,42 +36,79 @@ public class GraphForm extends JPanel {
     	
     	border.setTitleJustification(TitledBorder.LEFT);
     	border.setTitlePosition(TitledBorder.TOP);
-    	GridBagConstraints c = new GridBagConstraints(); //Define the constraints 
+    	
+    	GridBagConstraints c = new GridBagConstraints(); //Define the constraints
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=0;
-    	gridBag.setConstraints(nameLabel, c);
-    	addGraphPanel.add(nameLabel );
+    	c.weightx=1;
+    	c.weighty=1;
+    	addGraphPanel.add(nameLabel, c);
+        
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=1;
-    	gridBag.setConstraints(nameTextField, c);
-    	addGraphPanel.add(nameTextField );
+    	c.weightx=2;
+    	c.weighty=2;
+    	addGraphPanel.add(nameTextField, c);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=2;
-    	gridBag.setConstraints(definitionPath, c);
-    	addGraphPanel.add(definitionPath);
+    	c.weightx=3;
+    	c.weighty=3;
+    	addGraphPanel.add(definitionPath,c);
+    	
+    	c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=3;
-    	gridBag.setConstraints(defPathTextField, c);
-    	addGraphPanel.add(defPathTextField);
+    	c.weightx=4;
+    	c.weighty=4;
+    	addGraphPanel.add(defPathTextField, c);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=4;
-    	gridBag.setConstraints(imagePath, c);
-    	addGraphPanel.add(imagePath);
+    	c.weightx=5;
+    	c.weighty=5;
+    	addGraphPanel.add(imagePath,c);
+    	
+    	c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=5;
-    	gridBag.setConstraints(imgPathTextField, c);
-    	addGraphPanel.add(imgPathTextField);
+    	c.weightx=6;
+    	c.weighty=6;
+    	addGraphPanel.add(imgPathTextField, c);
+    	
     	addGraphPanel.setBorder(border);
-
-    	frame.add(addGraphPanel);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
+    	c.gridx=0;
+    	c.gridy=0;
+    	frame.add(addGraphPanel, c);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
+    	c.gridx=0;
+    	c.gridy=0;
     	
      	CatalogList list = new CatalogList();
         list.setSize(100, 200);
         list.addGraph("ANA ARE MERE");
-    	graphListPanel.add(list);
+    	graphListPanel.add(list,c);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
+    	c.gridx=0;
+    	c.gridy=1;
+    	
+    	frame.add(list, c);
       //  this.frame.add(titleLabel);
       //  this.frame.add(nameTextField);
       //  this.frame.add(definitionPath);
