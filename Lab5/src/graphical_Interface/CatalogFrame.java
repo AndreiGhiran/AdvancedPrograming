@@ -1,5 +1,7 @@
 package graphical_Interface;
 
+import java.awt.FlowLayout;
+
 import javax.swing.JFrame;
 
 public class CatalogFrame extends JFrame {
