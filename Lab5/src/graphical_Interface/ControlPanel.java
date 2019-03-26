@@ -1,5 +1,7 @@
 package graphical_Interface;
 
+import java.awt.FlowLayout;
+
 import javax.swing.*;
 
 public class ControlPanel extends JPanel {
@@ -13,7 +15,8 @@ public class ControlPanel extends JPanel {
     }
     private void init() {
     	System.out.println("ceva");
-        this.frame.add(loadBtn);
-        this.frame.add(saveBtn);
+    	//this.setLayout(new FlowLayout());
+        this.add(loadBtn);
+        this.add(saveBtn);
     }
 }

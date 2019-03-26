@@ -27,11 +27,12 @@ public class GraphForm extends JPanel {
     public GraphForm()
     { 	
     	GridBagLayout gridBag = new GridBagLayout();
-    	this.frame.setSize(550,450);
+    	this.frame.setSize(565,350);
     	this.frame.setLayout(gridBag);
     	JPanel addGraphPanel = new JPanel();
-    	JPanel graphListPanel = new JPanel();
+    	JPanel graphInfoPanel = new JPanel();
     	addGraphPanel.setLayout(gridBag);
+    	graphInfoPanel.setLayout(new FlowLayout());
     	TitledBorder border = new TitledBorder("Add graph");
     	
     	border.setTitleJustification(TitledBorder.LEFT);
@@ -85,6 +86,25 @@ public class GraphForm extends JPanel {
     	c.weighty=6;
     	addGraphPanel.add(imgPathTextField, c);
     	
+    	JButton addGraphButt = new JButton("Add to repository");
+    	c = new GridBagConstraints();
+    	c.gridx=0;
+    	c.gridy=7;
+    	addGraphPanel.add(addGraphButt,c);
+    	
+    	graphInfoPanel.add(graphType);
+    	graphInfoPanel.add(graphT);
+    	graphInfoPanel.add(vericesNr);
+    	graphInfoPanel.add(verticesField);
+    	graphInfoPanel.add(edgesNr);
+    	graphInfoPanel.add(edgesField);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
+    	c.gridx=0;
+    	c.gridy=6;
+    	addGraphPanel.add(graphInfoPanel, c);
+    	
     	addGraphPanel.setBorder(border);
     	
     	c = new GridBagConstraints();
@@ -93,32 +113,22 @@ public class GraphForm extends JPanel {
     	c.gridy=0;
     	frame.add(addGraphPanel, c);
     	
+    	CatalogList list = new CatalogList();
+    	list.addGraph("ceva");
     	c = new GridBagConstraints();
-    	c.fill = GridBagConstraints.HORIZONTAL;
-    	c.gridx=0;
-    	c.gridy=0;
-    	
-     	CatalogList list = new CatalogList();
-        list.setSize(100, 200);
-        list.addGraph("ANA ARE MERE");
-    	graphListPanel.add(list,c);
-    	
-    	c = new GridBagConstraints();
-    	c.fill = GridBagConstraints.HORIZONTAL;
+    	c.fill = GridBagConstraints.BOTH;
     	c.gridx=0;
     	c.gridy=1;
-    	
     	frame.add(list, c);
-      //  this.frame.add(titleLabel);
-      //  this.frame.add(nameTextField);
-      //  this.frame.add(definitionPath);
-      //  this.frame.add(defPathTextField);
-      //  this.frame.add(imagePath);
-      //  this.frame.add(graphT);
-      //  this.frame.add(list);
-      //  new ControlPanel(frame);
-      //  nameTextField.setBounds(1, 2, 100, 50);
-    	this.frame.setVisible(true);
+    	
+    	c = new GridBagConstraints();
+    	c.fill = GridBagConstraints.HORIZONTAL;
+    	c.gridx=0;
+    	c.gridy=2;
+    
+    	frame.add(new ControlPanel(frame),c);
+    	
+       	this.frame.setVisible(true);
     	
     }
     
