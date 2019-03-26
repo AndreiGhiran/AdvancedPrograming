@@ -15,6 +15,5 @@ public class ControlPanel extends JPanel {
     	System.out.println("ceva");
         this.frame.add(loadBtn);
         this.frame.add(saveBtn);
-        this.frame.pack();
     }
 }
