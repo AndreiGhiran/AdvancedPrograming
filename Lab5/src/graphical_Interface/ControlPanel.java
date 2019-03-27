@@ -15,7 +15,6 @@ public class ControlPanel extends JPanel {
     }
     private void init() {
     	System.out.println("ceva");
-    	//this.setLayout(new FlowLayout());
         this.add(loadBtn);
         this.add(saveBtn);
     }
