@@ -1,4 +1,4 @@
-package catalog_graph;
+package graph_catalog;
 
 import java.io.Serializable;
 

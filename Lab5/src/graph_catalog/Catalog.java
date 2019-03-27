@@ -1,4 +1,4 @@
-package catalog_graph;
+package graph_catalog;
 
 import java.awt.Desktop;
 import java.io.BufferedReader;
@@ -57,7 +57,7 @@ public class Catalog implements Serializable{
 		
 	}
 	
-	public void save(String name) throws IOException
+	public void save(String name)
 	{
 		GraphIO ceva=new GraphIO(name,this);
 		ceva.save();
@@ -65,7 +65,8 @@ public class Catalog implements Serializable{
 	
 	public void load (String name)
 	{
-		
+		GraphIO ceva=new GraphIO(name,this);
+		ceva.save();
 	}
 
 }

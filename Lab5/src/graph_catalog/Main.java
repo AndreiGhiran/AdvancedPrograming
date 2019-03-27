@@ -1,4 +1,4 @@
-package catalog_graph;
+package graph_catalog;
 
 import java.io.*;
 
@@ -14,37 +14,11 @@ public class Main {
 		c.add(new Graph("diamond","diamond.tgf","diamond.pdf"));
 		c.list();
 		//c.open("butterfly");
-		try
-		{
-			//SAVE BEGIN
-			FileOutputStream f = new FileOutputStream(new java.io.File(".\\catalogs\\catalog1.txt"));
-			ObjectOutputStream o = new ObjectOutputStream(f);
-			o.writeObject(c);
-			o.close();
-			f.close();
-			//SAVE END
-			
-			//LOAD BEGIN
-			FileInputStream fi = new FileInputStream(new File(".\\catalogs\\catalog1.txt"));
-			ObjectInputStream oi = new ObjectInputStream(fi);
-			
-			Catalog c2 = (Catalog) oi.readObject();
-			oi.close();
-			fi.close();
-			
-			c2.list();
-			
-		}  catch (FileNotFoundException e) {
-			System.out.println("File not found");
-		} 
-		catch (IOException e) {
-			System.out.println("Error initializing stream");
-		} 
-		catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		c.save("C:\\Users\\AndreiG\\Desktop\\an2sem2\\AP\\git\\AdvancedPrograming\\Lab5\\catalogs\\catalog1.txt");
+		Catalog c2 = new Catalog(".\\graphs");
+		c2.load("C:\\Users\\AndreiG\\Desktop\\an2sem2\\AP\\git\\AdvancedPrograming\\Lab5\\catalogs\\catalog1.txt");
+		c2.list();
+				
 
 	}
 

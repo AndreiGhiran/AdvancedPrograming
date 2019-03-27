@@ -4,13 +4,15 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import graph_catalog.*;
+
 public class CatalogFrame extends JFrame {
     GraphForm form;
     CatalogList list;
     ControlPanel control;
     JLabel path;
     JTextField s_l_PathField;
-   	
+    
     public CatalogFrame() {
         super("Visual Graph Manager");
         init();
@@ -30,7 +32,6 @@ public class CatalogFrame extends JFrame {
         this.add(form, c);
         
     	c = new GridBagConstraints();
-    	this.list.addGraph("CEVA");
     	c.fill = GridBagConstraints.BOTH;
     	c.gridx=0;
     	c.gridy=1;
