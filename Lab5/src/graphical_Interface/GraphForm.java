@@ -32,15 +32,10 @@ public class GraphForm extends JPanel {
     
     private void init() {
     	GridBagLayout gridBag = new GridBagLayout();
-    	JPanel graphInfoPanel = new JPanel();
     	this.setLayout(gridBag);
-    	graphInfoPanel.setLayout(new FlowLayout());
-    	TitledBorder border = new TitledBorder("Add graph");
     	
-    	border.setTitleJustification(TitledBorder.LEFT);
-    	border.setTitlePosition(TitledBorder.TOP);
-    	
-    	GridBagConstraints c = new GridBagConstraints(); //Define the constraints
+    	//main panel
+    	GridBagConstraints c = new GridBagConstraints();
     	c.fill = GridBagConstraints.HORIZONTAL;
     	c.gridx=0;
     	c.gridy=0;
@@ -78,6 +73,9 @@ public class GraphForm extends JPanel {
     	c.gridy=5;
     	this.add(imgPathTextField, c);
     	
+    	//info panel
+    	JPanel graphInfoPanel = new JPanel();
+    	graphInfoPanel.setLayout(new FlowLayout());
     	graphInfoPanel.add(graphType);
     	graphInfoPanel.add(graphT);
     	graphInfoPanel.add(vericesNr);
@@ -91,13 +89,17 @@ public class GraphForm extends JPanel {
     	c.gridy=6;
     	this.add(graphInfoPanel, c);
     	
+    	//add button
     	JButton addGraphButt = new JButton("Add to repository");
     	c = new GridBagConstraints();
     	c.gridx=0;
     	c.gridy=7;
     	this.add(addGraphButt,c);
     	
-    	
+    	//border and title
+    	TitledBorder border = new TitledBorder("Add graph");
+    	border.setTitleJustification(TitledBorder.LEFT);
+    	border.setTitlePosition(TitledBorder.TOP);
     	this.setBorder(border);
       	
         //...
