@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
+import graph_catalog.*;
+
 public class GraphForm extends JPanel {
 	
     private final CatalogFrame frame;
@@ -26,6 +28,8 @@ public class GraphForm extends JPanel {
     JLabel graphType = new JLabel("Graph type");
     JLabel vericesNr = new JLabel("Number of verceces");
     JLabel edgesNr = new JLabel("Number of edges");
+    
+    Catalog cat;
     
     public GraphForm(CatalogFrame frame) {
         this.frame = frame;
@@ -110,12 +114,11 @@ public class GraphForm extends JPanel {
 			{
 				addGraph();       		
 			}
-		}
-);
+		});
     }
     	private void addGraph() 
     	{	
-    		String def=nameTextField.getText()+","+tipes[graphT.getSelectedIndex()]+",n="+verticesField.getValue()+",m="+edgesField.getValue()+"["+defPathTextField.getText()+"]");
+    		String def=nameTextField.getText()+","+tipes[graphT.getSelectedIndex()]+",n="+verticesField.getValue()+",m="+edgesField.getValue()+"["+defPathTextField.getText()+"]";
             frame.list.addGraph(def);
         }
 }

@@ -1,8 +1,8 @@
-package graph_catalog;
+package catalog_graph;
 
+import java.io.Serializable;
 
-
-public class Graph extends GraphIO{
+public class Graph implements Serializable{
 
 	String name;
 	String definition;
