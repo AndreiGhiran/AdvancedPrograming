@@ -1,6 +1,8 @@
 package graphical_Interface;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -102,11 +104,18 @@ public class GraphForm extends JPanel {
     	border.setTitlePosition(TitledBorder.TOP);
     	this.setBorder(border);
       	
-        //...
-    //    addButton.addActionListener(//...);
+    	addGraphButt.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				addGraph();       		
+			}
+		}
+);
     }
-    
-    private void addGraph() {
-     //   frame.list.addGraph(//...);
-    }
+    	private void addGraph() 
+    	{	
+    		String def=nameTextField.getText()+","+tipes[graphT.getSelectedIndex()]+",n="+verticesField.getValue()+",m="+edgesField.getValue()+"["+defPathTextField.getText()+"]");
+            frame.list.addGraph(def);
+        }
 }
