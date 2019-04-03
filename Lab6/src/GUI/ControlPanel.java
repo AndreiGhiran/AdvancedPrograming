@@ -60,8 +60,8 @@ public class ControlPanel extends JPanel{
     	try {
     		img = ImageIO.read(path);
     		this.frame.canvas.image=img;
-    	//	this.frame.canvas.graphics = img.createGraphics();
-    	//	this.frame.canvas.paintComponent(this.frame.canvas.graphics);
+    		this.frame.canvas.graphics = img.createGraphics();
+    		this.frame.canvas.paintComponent(this.frame.canvas.graphics);
     		this.frame.canvas.repaint();
     	}catch(IOException e) {
     		System.out.println("IO Exception");
