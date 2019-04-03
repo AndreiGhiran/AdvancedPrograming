@@ -5,9 +5,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class DrawingFrame extends JFrame {
-    Canvas canvas = new Canvas();
-    Toolbar toolbar = new Toolbar();
-    ControlPanel controlPanel = new ControlPanel();
+    Canvas canvas = new Canvas(this);
+    Toolbar toolbar = new Toolbar(this);
+    ControlPanel controlPanel = new ControlPanel(this);
 
     public DrawingFrame(){
         super("Graph Drawing");

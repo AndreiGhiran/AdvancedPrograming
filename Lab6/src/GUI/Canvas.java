@@ -14,12 +14,14 @@ import java.util.List;
 import java.util.Random;
 
 public class Canvas extends JPanel {
+	DrawingFrame frame;
     BufferedImage image = new BufferedImage(1500, 800, BufferedImage.TYPE_INT_ARGB);
     Graphics2D graphics = image.createGraphics();
     List<NodeShape> nodes = new ArrayList<>();
     int nodeNumber = 0;
 
-    public Canvas(){
+    public Canvas(DrawingFrame frame){
+    	this.frame=frame;
         init();
     }
 
