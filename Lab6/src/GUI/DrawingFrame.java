@@ -25,7 +25,7 @@ public class DrawingFrame extends JFrame {
 
         canvas.setPreferredSize(new Dimension(1500, 800));
         canvas.setBorder(BorderFactory.createMatteBorder(0, 20, 0, 20, Color.GRAY));
-        this.add(canvas);
+        this.add(canvas,BorderLayout.CENTER);
 
         controlPanel.setPreferredSize(new Dimension(1500, 100));
         controlPanel.setBackground(Color.GRAY);

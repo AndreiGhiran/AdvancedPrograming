@@ -27,24 +27,72 @@ public class ControlPanel extends JPanel{
         this.add(this.saveBtn);
         this.add(this.resetBtn);
         
-        loadBtn.addActionListener(new ActionListener() 
+        this.loadBtn.addActionListener(new ActionListener() 
         {
         	public void actionPerformed(ActionEvent e)
         	{
         		loadImg();
         	}
         });
+        
+        this.saveBtn.addActionListener(new ActionListener() 
+        {
+        	public void actionPerformed(ActionEvent e)
+        	{
+        		saveImg();
+        	}
+        });
+        
+        this.resetBtn.addActionListener(new ActionListener() 
+        {
+        	public void actionPerformed(ActionEvent e)
+        	{
+        		resetImg();
+        	}
+        });
     }
     private void loadImg() {
-    	int n = this.filechoser.showOpenDialog(this.frame);
+    	this.filechoser.showOpenDialog(this.frame);
     	filechoser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-    	File path = filechoser.getCurrentDirectory();
+    	File path = filechoser.getSelectedFile();
     	System.out.println(path);
-    	BufferedImage img = null;
+    	BufferedImage img;
     	try {
     		img = ImageIO.read(path);
+    		this.frame.canvas.image=img;
+    	//	this.frame.canvas.graphics = img.createGraphics();
+    	//	this.frame.canvas.paintComponent(this.frame.canvas.graphics);
+    		this.frame.canvas.repaint();
     	}catch(IOException e) {
     		System.out.println("IO Exception");
     	}
+    	
+    }
+    
+    public void saveImg()
+    {
+    	this.filechoser.showOpenDialog(this.frame);
+    	filechoser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+    	File path = filechoser.getSelectedFile();
+    	 try {
+             if (ImageIO.write(this.frame.canvas.image, "JPEG", path))
+             {
+                 System.out.println("-- saved");
+             }
+     } catch (IOException e) {
+             // TODO Auto-generated catch block
+             e.printStackTrace();
+     }
+    }
+    
+    private void resetImg() {
+    		Canvas canvas2 = new Canvas(this.frame);
+    		canvas2.setPreferredSize(new Dimension(1500, 800));
+    	    canvas2.setBorder(BorderFactory.createMatteBorder(0, 20, 0, 20, Color.GRAY));
+    	    this.frame.remove(this.frame.canvas);
+    	    this.frame.canvas=canvas2;
+            this.frame.add(this.frame.canvas,BorderLayout.CENTER);
+
+
     }
 }
