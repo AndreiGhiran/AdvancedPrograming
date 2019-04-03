@@ -75,6 +75,7 @@ public class ControlPanel extends JPanel{
     	filechoser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
     	File path = filechoser.getSelectedFile();
     	 try {
+    		 
              if (ImageIO.write(this.frame.canvas.image, "JPEG", path))
              {
                  System.out.println("-- saved");
