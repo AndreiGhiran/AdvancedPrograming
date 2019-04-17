@@ -21,6 +21,17 @@ public class Player implements Runnable {
     	this.graph = new Graph(edges,this.numberOfNodes);
     	
     }
+
+	public void setIndex(int playerIndex) {
+		// TODO Auto-generated method stub
+		this.playerIndex=playerIndex;
+	}
+
+	public void serNrOfNodes(int numberOfNodes) {
+		// TODO Auto-generated method stub
+		this.numberOfNodes=numberOfNodes;
+	}
+
     
     private boolean play() throws InterruptedException {
         Board board = game.getBoard();
@@ -56,14 +67,4 @@ public class Player implements Runnable {
    	
     }
     // implement the toString() method
-
-	public void setIndex(int playerIndex) {
-		// TODO Auto-generated method stub
-		this.playerIndex=playerIndex;
-	}
-
-	public void serNrOfNodes(int numberOfNodes) {
-		// TODO Auto-generated method stub
-		this.numberOfNodes=numberOfNodes;
-	}
 }
