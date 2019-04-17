@@ -79,7 +79,7 @@ public class Board {
 		this.completeGraph.show();
 	}
 	public synchronized void nextPlayer() {
-        //System.out.println("NextPlayer, index=" + this.index + " nr of players= " + this.numberOfPlayrs);
+        System.out.println("NextPlayer, index=" + this.index + " nr of players= " + this.numberOfPlayrs);
         if(this.index == this.numberOfPlayrs-1)
         {
         	this.index=1;
@@ -96,5 +96,9 @@ public class Board {
 	public boolean isSpanningTreeTest()
 	{
 		return this.completeGraph.isSpanningTree();
+	}
+	
+	public int getCurrentIndex() {
+		return this.index;
 	}
 }

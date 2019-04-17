@@ -26,6 +26,7 @@ public class Game {
 	    
 	public void setWinner(Player player) {
 		this.winner=player;
+		System.out.println("WINNER: " + this.winner.getName());
 	}
 	
 	public void start() {
@@ -55,5 +56,11 @@ public class Game {
 		this.board.show();
 		
 	}
+	
+	public List<Player> getPlayers()
+	{
+		return this.players;
+	}
+	
 	
 }

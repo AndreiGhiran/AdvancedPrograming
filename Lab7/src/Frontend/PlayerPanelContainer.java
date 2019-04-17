@@ -37,4 +37,8 @@ public class PlayerPanelContainer extends JPanel {
             generateID++;
         }
     }
+    
+    public List<PlayerCanvas> getPlayerCnavas(){
+    	return this.playersCanvas;
+    }
 }

@@ -16,6 +16,6 @@ public class Main {
          System.out.println("is spanning tree test: " + game.getBoard().isSpanningTreeTest());
          System.out.println("main done");
 
-        new GameFrame().setVisible(true);
+        new GameFrame( game ).setVisible(true);
     }
 }

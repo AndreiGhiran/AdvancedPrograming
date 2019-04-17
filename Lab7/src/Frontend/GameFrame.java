@@ -1,17 +1,19 @@
 package Frontend;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import Backend.*;
 
 public class GameFrame extends JFrame {
-    MainPanel mainPanel = new MainPanel(12);
+    MainPanel mainPanel = new MainPanel(10);
     PlayerPanelContainer playersContainer = new PlayerPanelContainer(3);
+    private Game game;
 
-    public GameFrame() {
+    public GameFrame(Game game) {
         super("Graph game, yeey");
+        this.game=game;
         init();
     }
 
@@ -36,10 +38,28 @@ public class GameFrame extends JFrame {
         buttonListeners();
     }
 
-    private void buttonListeners() {
+    private synchronized void buttonListeners() {
         for (Button edgeButton : mainPanel.edgeButtons) {
             edgeButton.addActionListener(e -> {
-                System.out.println(mainPanel.extract(edgeButton));
+               String edge = mainPanel.extract(edgeButton);
+               int index = this.game.getBoard().getCurrentIndex();
+               List<PlayerCanvas> canvases = this.playersContainer.getPlayerCnavas(); 
+               for (PlayerCanvas canvas : canvases)
+               {
+            	   if(canvas.index==index)
+            	   {
+            		   canvas.addEdge(edge);
+            	   }
+               }
+               List<Player> players = this.game.getPlayers();
+               for(Player player : players)
+               {
+            	  if(player.getIndex()==index)
+            	  {
+            		  player.doTheThing((int) edge.charAt(0), (int) edge.charAt(2));
+            		  
+            	  }
+               }
             });
         }
     }

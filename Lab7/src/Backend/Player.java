@@ -6,13 +6,15 @@ import java.util.List;
 import Backend.*;
 
 public class Player implements Runnable {
-  private static final long THINKING_TIME = 5000;
+  private static final long THINKING_TIME = 1000;
 	//  ....
     private String name;
     private Game game;
     private Graph graph;
-    private int playerIndex;
+    public int playerIndex;
     private int numberOfNodes;
+    private int nod1=-1;
+    private int nod2=-1;
     //  ...
     
     public Player(String name) {
@@ -36,15 +38,20 @@ public class Player implements Runnable {
     private boolean play() throws InterruptedException {
         Board board = game.getBoard();
         if (board.isEmpty()) { return false; }
-        graph.add( board.extract(0,1,this.playerIndex));
+        if(this.nod1!=-1 && this.nod2!=-1)
+        {
+           graph.add( board.extract(nod1,nod2,this.playerIndex));
+           this.nod1=-1;
+           this.nod2=-1;
+           board.nextPlayer();
     	System.out.println(this.name + " extracted");
-    	board.nextPlayer();
         Thread.sleep(THINKING_TIME); //declare this constant
         
         if (graph.isSpanningTree()) {
 	        game.setWinner(this);
         }
-//        ...
+        }
+        Thread.sleep(THINKING_TIME);
         return true;
 	}
     
@@ -66,5 +73,19 @@ public class Player implements Runnable {
 			}
    	
     }
+    public int getIndex() {
+    	return this.playerIndex;
+    }
     // implement the toString() method
+
+	public void doTheThing(int nod1, int nod2) {
+		// TODO Auto-generated method stub
+		this.nod1=nod1;
+		this.nod2=nod2;
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return this.name;
+	}
 }
