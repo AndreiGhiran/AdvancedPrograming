@@ -1,6 +1,7 @@
 package Main;
 
 import Backend.*;
+import Frontend.GameFrame;
 
 public class Main {
 
@@ -14,5 +15,7 @@ public class Main {
          game.start();
          System.out.println("is spanning tree test: " + game.getBoard().isSpanningTreeTest());
          System.out.println("main done");
+
+        new GameFrame().setVisible(true);
     }
 }
