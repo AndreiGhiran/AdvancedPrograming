@@ -12,12 +12,13 @@ public class Player implements Runnable {
     private Game game;
     private Graph graph;
     private int playerIndex;
+    private int numberOfNodes;
     //  ...
     
     public Player(String name) {
     	this.name=name;
     	List<Edge> edges = new ArrayList<Edge>();
-    	this.graph = new Graph(edges);
+    	this.graph = new Graph(edges,this.numberOfNodes);
     	
     }
     
@@ -59,5 +60,10 @@ public class Player implements Runnable {
 	public void setIndex(int playerIndex) {
 		// TODO Auto-generated method stub
 		this.playerIndex=playerIndex;
+	}
+
+	public void serNrOfNodes(int numberOfNodes) {
+		// TODO Auto-generated method stub
+		this.numberOfNodes=numberOfNodes;
 	}
 }

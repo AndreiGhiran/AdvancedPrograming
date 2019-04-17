@@ -9,12 +9,15 @@ public class Board {
     private int numberOfPlayrs=0;
     private int index = 1;
 
-    public Board(int numberOdEdges, int numberOfPlayers) {
+    public Board(int numberOfNodes, int numberOfPlayers) {
         List<Edge> generatedEdges = new ArrayList<>();
-        for(int i = 0; i < numberOdEdges; i+=2){
-            generatedEdges.add(new Edge(i, i+1));
+        for(int i = 0; i < numberOfNodes; i++){
+        	for (int j = i+1; j < numberOfNodes;j++)
+        	{
+            generatedEdges.add(new Edge(i, j));
+        	}
         }
-        completeGraph = new Graph(generatedEdges);
+        completeGraph = new Graph(generatedEdges,numberOfNodes);
         this.numberOfPlayrs=numberOfPlayers;
     }
 
@@ -73,6 +76,7 @@ public class Board {
 	{
 		System.out.println("board nr players: " + this.numberOfPlayrs);
 		System.out.println("board initial index: " + this.index);
+		this.completeGraph.show();
 	}
 	public synchronized void nextPlayer() {
         //System.out.println("NextPlayer, index=" + this.index + " nr of players= " + this.numberOfPlayrs);
@@ -87,5 +91,10 @@ public class Board {
       //      System.out.println("ramura 2 " + this.index);
         }
         notify();
+	}
+	
+	public boolean isSpanningTreeTest()
+	{
+		return this.completeGraph.isSpanningTree();
 	}
 }

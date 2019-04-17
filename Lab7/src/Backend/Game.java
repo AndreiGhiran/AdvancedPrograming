@@ -6,13 +6,19 @@ public class Game {
 
 	 private Board board;
 	 private final List<Player> players = new ArrayList<>();
+	 private int numberOfNodes;
 	 private Player winner = null;
 	 private int playerIndex = 1;
   
+	 public void setNrOfNodes(int numberOfNodes)
+	 {
+		 this.numberOfNodes=numberOfNodes;
+	 }
 	 public void addPlayer(Player player) {
 	        players.add(player);
 	        player.setGame(this);
 	        player.setIndex(playerIndex);
+	        player.serNrOfNodes(this.numberOfNodes);
 	        this.playerIndex++;
 	    }
 	    //Create getters and setters
@@ -47,6 +53,7 @@ public class Game {
 	public void showGameInfo()
 	{
 		this.board.show();
+		
 	}
 	
 }

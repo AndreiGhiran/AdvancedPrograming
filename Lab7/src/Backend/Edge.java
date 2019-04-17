@@ -24,4 +24,9 @@ public class Edge {
     public void setNode2(int node2) {
         this.node2 = node2;
     }
+
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("node1: "+ this.node1 + " node 2: " + this.node2);
+	}
 }

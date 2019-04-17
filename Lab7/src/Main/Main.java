@@ -12,6 +12,7 @@ public class Main {
          game.addPlayer(new Player("Player 3"));
          game.showGameInfo();
          game.start();
+         System.out.println("is spanning tree test: " + game.getBoard().isSpanningTreeTest());
          System.out.println("main done");
     }
 }
