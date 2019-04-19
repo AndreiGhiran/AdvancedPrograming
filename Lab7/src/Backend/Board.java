@@ -90,7 +90,7 @@ public class Board {
         	this.index++;
       //      System.out.println("ramura 2 " + this.index);
         }
-        notify();
+        notifyAll();
 	}
 	
 	public boolean isSpanningTreeTest()
