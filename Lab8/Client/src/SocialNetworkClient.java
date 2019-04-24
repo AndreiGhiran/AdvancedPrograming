@@ -23,6 +23,10 @@ public class SocialNetworkClient {
     }
    
 	
+    /**
+     * @param request
+     * @param socket
+     */
     private void sendRequestToServer(String request, Socket socket) {
 		// TODO Auto-generated method stub
     	try {
@@ -38,7 +42,7 @@ public class SocialNetworkClient {
 			
 			while( !(response.equals("EOF")) )
 			{
-			System.out.println("-"+response+"-");
+			System.out.println(response);
 			response = in.readLine();
 
 			}

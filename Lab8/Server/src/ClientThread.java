@@ -114,13 +114,14 @@ public class ClientThread extends Thread {
                                 List<String> friends = server.usersAndFriends.get(user);
                                 friends.add(parsedRequest[i]);
                                 server.usersAndFriends.put(user, friends);
-                                response = response + "Friend " + parsedRequest[i] + " added.\nEOF";
+                                response = response + "Friend " + parsedRequest[i] + " added.\n";
                                 found = true;
                                 break;
                             }
                         if (found == false)
-                            response = response + "User " + parsedRequest[i] + " does not exist.\nEOF";
+                            response = response + "User " + parsedRequest[i] + " does not exist.\n";
                     }
+                    response = response + "EOF";
                 }
 
                 break;
@@ -133,7 +134,7 @@ public class ClientThread extends Thread {
                     response = "Please specify a message.\nEOF";
                     break;
                 } else {
-                    List<String> friends =  server.usersAndFriends.get(user);
+                    List<String> friends = server.usersAndFriends.get(user);
 
                     for (String friend : friends) {
 
@@ -141,9 +142,14 @@ public class ClientThread extends Thread {
                         friendUser.put(friend, user);
                         String oldMessage = server.messages.get(friendUser);
 
-                        for (int i = 1; i < parsedRequest.length; i++)
+                        for (int i = 1; i < parsedRequest.length; i++) {
                             oldMessage = oldMessage + " " + parsedRequest[i];
+                        }
                         oldMessage += "\n";
+                        if (oldMessage.substring(0, 5).equals("null "))
+                            oldMessage = oldMessage.substring(5);
+
+                        System.out.println("dfhsdjofn " + oldMessage);
 
                         server.messages.put(friendUser, oldMessage);
                         response = response + "Message sent to " + friend + ".\nEOF";
@@ -161,8 +167,10 @@ public class ClientThread extends Thread {
                     for (String friend : friendList) {
                         HashMap<String, String> friendUser = new HashMap<>();
                         friendUser.put(user, friend);
-                        response = response + "Message from " + friend + ": \n" + server.messages.get(friendUser) + "\nEOF";
+                        response = response + "Message from " + friend + ": \n" + server.messages.get(friendUser);
                     }
+                    System.out.println("response after read command: " + response);
+                    response = response + "\nEOF";
                     break;
                 }
 
@@ -178,7 +186,7 @@ public class ClientThread extends Thread {
 
         System.out.println("Client " + user + ": " + response);
 
-        response = response + "EOF";
+        // response = response + "EOF";
 
         return response;
     }
