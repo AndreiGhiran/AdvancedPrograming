@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c254b1-2b78-4840-b483-fca3d9e04a48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Lab7/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Backend/Board.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Backend/Edge.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Backend/Game.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Backend/Graph.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Backend/Player.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Frontend/GameFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Frontend/MainPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Frontend/PlayerCanvas.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Frontend/PlayerPanelContainer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/META-INF/Lab7.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Main/Controller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/bin/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/bin/clientSide/SocialNetworkClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/bin/clientSide/SocialNetworkClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/clientSide/SocialNetworkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/SocialNetworkClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApplication/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApplication/ClientThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/SocialNetworkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/SocialNetworkClient.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="128" column="37" lean-forward="true" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
+            <state relative-caret-position="126">
+              <caret line="131" column="26" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,7 +143,7 @@
       <workItem from="1555518620959" duration="1346000" />
       <workItem from="1556057142855" duration="6914000" />
       <workItem from="1556092728728" duration="1628000" />
-      <workItem from="1556105827468" duration="2357000" />
+      <workItem from="1556105827468" duration="2686000" />
     </task>
     <task id="LOCAL-00001" summary="Client Thread added.">
       <created>1556062592551</created>
@@ -182,14 +166,22 @@
       <option name="project" value="LOCAL" />
       <updated>1556093691671</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TODO: send, receive.">
+      <created>1556108347825</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556108347825</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12245000" />
+    <option name="totallyTimeSpent" value="12574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25773746" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -229,7 +221,8 @@
     <MESSAGE value="Client Thread added." />
     <MESSAGE value="Client Thread fixed." />
     <MESSAGE value="Checkpoint 1." />
-    <option name="LAST_COMMIT_MESSAGE" value="Checkpoint 1." />
+    <MESSAGE value="TODO: send, receive." />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: send, receive." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../Lab7/src/Backend/Board.java">
@@ -247,8 +240,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="128" column="37" lean-forward="true" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
+        <state relative-caret-position="126">
+          <caret line="131" column="26" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
