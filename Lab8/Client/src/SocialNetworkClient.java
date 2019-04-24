@@ -32,10 +32,16 @@ public class SocialNetworkClient {
 		//Trimit request la server
 			out.println(request);
 			
-		//Astept un raspuns(obtional)
-			String response = in.readLine();
-			System.out.println(response);
+		//Astept un raspuns
+			String response;
+			response = in.readLine();
 			
+			while( !(response.equals("EOF")) )
+			{
+			System.out.println("-"+response+"-");
+			response = in.readLine();
+
+			}
 			
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block

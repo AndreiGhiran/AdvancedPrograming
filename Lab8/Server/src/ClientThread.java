@@ -61,37 +61,37 @@ public class ClientThread extends Thread {
                 boolean found = false;
 
                 if (parsedRequest.length > 2) {
-                    response = "Incalid name! Name must not contain spaces.";
+                    response = "Incalid name! Name must not contain spaces.\nEOF";
                     break;
                 } else if (parsedRequest.length == 1) {
                     System.out.println(parsedRequest.length);
                     for (String i : parsedRequest)
                         System.out.println(i);
-                    response = "Please specify a name.";
+                    response = "Please specify a name.\nEOF";
                     break;
                 } else {
                     for (String name : server.usersAndFriends.keySet())
                         if (name.equals(parsedRequest[1])) {
-                            response = "Invalid name! Name already used.";
+                            response = "Invalid name! Name already used.\nEOF";
                             found = true;
                         }
                 }
                 if (found == false) {
                     System.out.println("Success");
                     server.usersAndFriends.put(parsedRequest[1], new ArrayList<>());
-                    response = "User " + parsedRequest[1] + " created.";
+                    response = "User " + parsedRequest[1] + " created.\nEOF";
                 }
                 break;
 
             case "login":
                 if (parsedRequest.length < 2) {
-                    response = "Please specify a name";
+                    response = "Please specify a name\nEOF";
                     break;
                 } else {
-                    response = "The specified name does not exist.";
+                    response = "The specified name does not exist.\nEOF";
                     for (String name : server.usersAndFriends.keySet())
                         if (name.equals(parsedRequest[1])) {
-                            response = "Welcome!";
+                            response = "Welcome!\nEOF";
                             user = name;
                             break;
                         }
@@ -102,10 +102,10 @@ public class ClientThread extends Thread {
                 found = false;
 
                 if (user.isEmpty()) {
-                    response = "Please log in.";
+                    response = "Please log in.\nEOF";
                     break;
                 } else if (parsedRequest.length < 2) {
-                    response = "Please specify the name of friend/friends to be added.";
+                    response = "Please specify the name of friend/friends to be added.\nEOF";
                     break;
                 } else {
                     for (int i = 1; i < parsedRequest.length; i++) {
@@ -114,12 +114,12 @@ public class ClientThread extends Thread {
                                 List<String> friends = server.usersAndFriends.get(user);
                                 friends.add(parsedRequest[i]);
                                 server.usersAndFriends.put(user, friends);
-                                response = response + "Friend " + parsedRequest[i] + " added.\n";
+                                response = response + "Friend " + parsedRequest[i] + " added.\nEOF";
                                 found = true;
                                 break;
                             }
                         if (found == false)
-                            response = response + "User " + parsedRequest[i] + " does not exist.\n";
+                            response = response + "User " + parsedRequest[i] + " does not exist.\nEOF";
                     }
                 }
 
@@ -127,10 +127,10 @@ public class ClientThread extends Thread {
 
             case "send":
                 if (user.isEmpty()) {
-                    response = "Please log in.";
+                    response = "Please log in.\nEOF";
                     break;
                 } else if (parsedRequest.length < 2) {
-                    response = "Please specify a message.";
+                    response = "Please specify a message.\nEOF";
                     break;
                 } else {
                     List<String> friends =  server.usersAndFriends.get(user);
@@ -146,7 +146,7 @@ public class ClientThread extends Thread {
                         oldMessage += "\n";
 
                         server.messages.put(friendUser, oldMessage);
-                        response = response + "Message sent to " + friend + ".\n";
+                        response = response + "Message sent to " + friend + ".\nEOF";
                         break;
                     }
                     break;
@@ -154,24 +154,24 @@ public class ClientThread extends Thread {
 
             case "read":
                 if (user.isEmpty()) {
-                    response = "Please log in.";
+                    response = "Please log in.\nEOF";
                     break;
                 } else {
                     List<String> friendList = server.usersAndFriends.get(user);
                     for (String friend : friendList) {
                         HashMap<String, String> friendUser = new HashMap<>();
                         friendUser.put(user, friend);
-                        response = response + "Message from " + friend + ": \n" + server.messages.get(friendUser) + "\n";
+                        response = response + "Message from " + friend + ": \n" + server.messages.get(friendUser) + "\nEOF";
                     }
                     break;
                 }
 
             case "exit":
-                response = "Bye!";
+                response = "Bye!\nEOF";
                 break;
 
             default:
-                response = "Invalid command.";
+                response = "Invalid command.\nEOF";
         }
 
         System.out.println("He is " + user);
