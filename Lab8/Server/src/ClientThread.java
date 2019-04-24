@@ -161,8 +161,10 @@ public class ClientThread extends Thread {
                     for (String friend : friendList) {
                         HashMap<String, String> friendUser = new HashMap<>();
                         friendUser.put(user, friend);
-                        response = response + "Message from " + friend + ": \n" + server.messages.get(friendUser) + "\nEOF";
+                        response = response + "Message from " + friend + ": \n" + server.messages.get(friendUser);
                     }
+                    System.out.println("response after read command: " + response);
+                    response = response + "\nEOF";
                     break;
                 }
 
@@ -178,7 +180,7 @@ public class ClientThread extends Thread {
 
         System.out.println("Client " + user + ": " + response);
 
-        response = response + "EOF";
+       // response = response + "EOF";
 
         return response;
     }
