@@ -15,6 +15,7 @@ public class ClientThread extends Thread {
     public ClientThread(SocialNetworkServer server, Socket socket) {
         this.server = server;
         this.socket = socket;
+        System.out.println("A new client has connected.");
     }
 
     @Override
@@ -154,6 +155,8 @@ public class ClientThread extends Thread {
             default:
                 response = "Invalid command.";
         }
+
+        System.out.println("Client " + user + ": " + response);
 
         return response;
     }
