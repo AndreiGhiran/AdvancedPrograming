@@ -8,8 +8,7 @@ public class SocialNetworkClient {
     private final static int PORT = 8100;
     
     public static void main(String[] args) throws IOException {
-        SocialNetworkClient client = new SocialNetworkClient();
-        
+        SocialNetworkClient client = new SocialNetworkClient();      
         Socket socket = new Socket(SERVER_ADDRESS, PORT);
         while (true) {
             String request = client.readFromKeyboard();
