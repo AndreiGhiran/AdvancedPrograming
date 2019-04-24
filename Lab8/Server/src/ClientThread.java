@@ -143,10 +143,11 @@ public class ClientThread extends Thread {
                         String oldMessage = server.messages.get(friendUser);
 
                         for (int i = 1; i < parsedRequest.length; i++) {
-                                oldMessage = oldMessage + " " + parsedRequest[i];
+                            oldMessage = oldMessage + " " + parsedRequest[i];
                         }
                         oldMessage += "\n";
-                        oldMessage = oldMessage.substring(5);
+                        if (oldMessage.substring(0, 5).equals("null "))
+                            oldMessage = oldMessage.substring(5);
 
                         System.out.println("dfhsdjofn " + oldMessage);
 
