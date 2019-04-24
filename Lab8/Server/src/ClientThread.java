@@ -178,6 +178,8 @@ public class ClientThread extends Thread {
 
         System.out.println("Client " + user + ": " + response);
 
+        response = response + "EOF";
+
         return response;
     }
 }
