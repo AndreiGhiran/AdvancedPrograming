@@ -34,7 +34,7 @@ public class SocialNetworkServer {
 
                 Socket socket = serverSocket.accept();
 
-                new ClientThread(this, socket);
+                new ClientThread(this, socket).start();
 
             } catch (IOException e) {
                 e.printStackTrace();

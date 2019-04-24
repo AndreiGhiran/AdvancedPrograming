@@ -16,7 +16,7 @@ public class ClientThread extends Thread {
         this.server = server;
         this.socket = socket;
         System.out.println("A new client has connected.");
-        run();
+//        run();
     }
 
     public void run() {
@@ -174,7 +174,6 @@ public class ClientThread extends Thread {
                 response = "Invalid command.";
         }
 
-        System.out.println(server.usersAndFriends.keySet());
         System.out.println("He is " + user);
 
         System.out.println("Client " + user + ": " + response);
