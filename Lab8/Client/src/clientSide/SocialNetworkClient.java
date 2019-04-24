@@ -31,8 +31,8 @@ public class SocialNetworkClient {
 			out.println(request);
 			
 		//Astept un raspuns(obtional)
-			//String response = in.readLine();
-			//System.out.println(response);
+			String response = in.readLine();
+			System.out.println(response);
 			
 			
 		} catch (UnknownHostException e) {

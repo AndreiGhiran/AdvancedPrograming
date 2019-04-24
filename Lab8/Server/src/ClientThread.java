@@ -16,19 +16,21 @@ public class ClientThread extends Thread {
         this.server = server;
         this.socket = socket;
         System.out.println("A new client has connected.");
+        run();
     }
 
-    @Override
     public void run() {
         try {
             while (true) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String request = in.readLine();
+                System.out.println(request);
                 String response = execute(request);
                 PrintWriter out = new PrintWriter(socket.getOutputStream());
                 out.println(response);
                 if (response.equals("Bye!"))
                     break;
+                System.out.println(response);
                 out.flush();
             }
         } catch (IOException e) {
