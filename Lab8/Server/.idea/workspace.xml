@@ -17,7 +17,7 @@
       <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/bin/clientSide/SocialNetworkClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/bin/clientSide/SocialNetworkClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/clientSide/SocialNetworkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/clientSide/SocialNetworkClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/clientSide/SocialNetworkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/SocialNetworkClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ServerApplication/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApplication/ClientThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientThread.java" afterDir="false" />
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+            <state relative-caret-position="75">
+              <caret line="128" column="37" lean-forward="true" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,6 +115,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555519376210" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -157,7 +158,8 @@
       <updated>1555518617155</updated>
       <workItem from="1555518620959" duration="1346000" />
       <workItem from="1556057142855" duration="6914000" />
-      <workItem from="1556092728728" duration="785000" />
+      <workItem from="1556092728728" duration="1628000" />
+      <workItem from="1556105827468" duration="2357000" />
     </task>
     <task id="LOCAL-00001" summary="Client Thread added.">
       <created>1556062592551</created>
@@ -173,17 +175,23 @@
       <option name="project" value="LOCAL" />
       <updated>1556093206214</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Checkpoint 1.">
+      <created>1556093691671</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556093691671</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9045000" />
+    <option name="totallyTimeSpent" value="12245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25506938" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25773746" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -220,7 +228,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Client Thread added." />
     <MESSAGE value="Client Thread fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Client Thread fixed." />
+    <MESSAGE value="Checkpoint 1." />
+    <option name="LAST_COMMIT_MESSAGE" value="Checkpoint 1." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../Lab7/src/Backend/Board.java">
@@ -238,8 +247,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+        <state relative-caret-position="75">
+          <caret line="128" column="37" lean-forward="true" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

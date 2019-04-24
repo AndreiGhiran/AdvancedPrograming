@@ -24,13 +24,13 @@ public class ClientThread extends Thread {
             while (true) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String request = in.readLine();
+                System.out.println("Primit request:");
                 System.out.println(request);
                 String response = execute(request);
                 PrintWriter out = new PrintWriter(socket.getOutputStream());
                 out.println(response);
                 if (response.equals("Bye!"))
                     break;
-                System.out.println(response);
                 out.flush();
             }
         } catch (IOException e) {
@@ -46,18 +46,26 @@ public class ClientThread extends Thread {
 
     private String execute(String request) {
         String response = new String();
+
+        // Split the request
         String[] parsedRequest = request.split(" ");
+
+        // Remove whitespaces
+        for (String i : parsedRequest)
+            i = i.replaceAll("\\s+", "");
+
         System.out.println("Executing...");
         switch (parsedRequest[0]) {
 
             case "register":
+                boolean found = false;
 
                 if (parsedRequest.length > 2) {
                     response = "Incalid name! Name must not contain spaces.";
                     break;
                 } else if (parsedRequest.length == 1) {
                     System.out.println(parsedRequest.length);
-                    for(String i : parsedRequest)
+                    for (String i : parsedRequest)
                         System.out.println(i);
                     response = "Please specify a name.";
                     break;
@@ -65,13 +73,14 @@ public class ClientThread extends Thread {
                     for (String name : server.usersAndFriends.keySet())
                         if (name.equals(parsedRequest[1])) {
                             response = "Invalid name! Name already used.";
-                            break;
+                            found = true;
                         }
                 }
-
-                System.out.println("Success");
-                server.usersAndFriends.put(parsedRequest[1], new ArrayList<>());
-                response = "User" + parsedRequest[1] + " created.";
+                if (found == false) {
+                    System.out.println("Success");
+                    server.usersAndFriends.put(parsedRequest[1], new ArrayList<>());
+                    response = "User " + parsedRequest[1] + " created.";
+                }
                 break;
 
             case "login":
@@ -79,18 +88,19 @@ public class ClientThread extends Thread {
                     response = "Please specify a name";
                     break;
                 } else {
+                    response = "The specified name does not exist.";
                     for (String name : server.usersAndFriends.keySet())
                         if (name.equals(parsedRequest[1])) {
                             response = "Welcome!";
                             user = name;
                             break;
-                        } else {
-                            response = "The specified name does not exist.";
-                            break;
                         }
+                    break;
                 }
 
             case "friend":
+                found = false;
+
                 if (user.isEmpty()) {
                     response = "Please log in.";
                     break;
@@ -98,19 +108,22 @@ public class ClientThread extends Thread {
                     response = "Please specify the name of friend/friends to be added.";
                     break;
                 } else {
-                    for (int i = 1; i < parsedRequest.length; i++)
+                    for (int i = 1; i < parsedRequest.length; i++) {
                         for (String name : server.usersAndFriends.keySet())
                             if (parsedRequest[i].equals(name)) {
                                 List<String> friends = server.usersAndFriends.get(user);
                                 friends.add(parsedRequest[i]);
                                 server.usersAndFriends.put(user, friends);
                                 response = response + "Friend " + parsedRequest[i] + " added.\n";
+                                found = true;
                                 break;
-                            } else {
-                                response = response + "User " + parsedRequest[i] + " does not exist.\n";
                             }
-                    break;
+                        if (found == false)
+                            response = response + "User " + parsedRequest[i] + " does not exist.\n";
+                    }
                 }
+
+                break;
 
             case "send":
                 if (user.isEmpty()) {
@@ -120,13 +133,9 @@ public class ClientThread extends Thread {
                     response = "Please specify a message.";
                     break;
                 } else {
-                    List<String> friends = new ArrayList<>();
+                    List<String> friends =  server.usersAndFriends.get(user);
 
-                    for (String name : server.usersAndFriends.keySet())
-                        if (name.equals(user))
-                            friends = server.usersAndFriends.get(name);
-
-                    for (String friend : server.usersAndFriends.get(user)) {
+                    for (String friend : friends) {
 
                         HashMap<String, String> friendUser = new HashMap<>();
                         friendUser.put(friend, user);
@@ -140,6 +149,7 @@ public class ClientThread extends Thread {
                         response = response + "Message sent to " + friend + ".\n";
                         break;
                     }
+                    break;
                 }
 
             case "read":
@@ -163,6 +173,9 @@ public class ClientThread extends Thread {
             default:
                 response = "Invalid command.";
         }
+
+        System.out.println(server.usersAndFriends.keySet());
+        System.out.println("He is " + user);
 
         System.out.println("Client " + user + ": " + response);
 

@@ -1,5 +1,3 @@
-package clientSide;
-
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -10,25 +8,26 @@ public class SocialNetworkClient {
     
     public static void main(String[] args) throws IOException {
         SocialNetworkClient client = new SocialNetworkClient();
+        Socket socket = new Socket(SERVER_ADDRESS, PORT);
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        BufferedReader in = new BufferedReader (new InputStreamReader(socket.getInputStream()));
         while (true) {
             String request = client.readFromKeyboard();
             if (request.equalsIgnoreCase("exit")) {
                 break;
             } else {
-                client.sendRequestToServer(request);
+                client.sendRequestToServer(request, out, in);
             }
         }
     }
     //... //Implement the sendRequestToServer method
 	
-    private void sendRequestToServer(String request) {
+    private void sendRequestToServer(String request, PrintWriter out, BufferedReader in) {
 		// TODO Auto-generated method stub
     	try {
-			Socket socket = new Socket(SERVER_ADDRESS, PORT);
-			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			BufferedReader in = new BufferedReader (new InputStreamReader(socket.getInputStream()));
 		//Trimit request la server
 			out.println(request);
+            System.out.println("Am trimis requestul");
 			
 		//Astept un raspuns(obtional)
 			String response = in.readLine();
