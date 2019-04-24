@@ -16,11 +16,9 @@
       <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Main/Controller.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Lab7/out/production/Lab7/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/clientSide/SocialNetworkClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/clientSide/SocialNetworkClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientSide/SocialNetworkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientSide/SocialNetworkClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/ServerApplication/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/ServerApplication/ClientThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/ClientThread.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -35,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/clientSide/SocialNetworkClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+            <state relative-caret-position="483">
+              <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -94,7 +92,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556093117983" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556093673187" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -142,12 +140,12 @@
       <option name="presentableId" value="Default" />
       <updated>1556063174994</updated>
       <workItem from="1556063179073" duration="899000" />
-      <workItem from="1556092558558" duration="504000" />
+      <workItem from="1556092558558" duration="1020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1403000" />
+    <option name="totallyTimeSpent" value="1919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
@@ -189,8 +187,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/clientSide/SocialNetworkClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        <state relative-caret-position="483">
+          <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
         </state>
       </provider>
     </entry>

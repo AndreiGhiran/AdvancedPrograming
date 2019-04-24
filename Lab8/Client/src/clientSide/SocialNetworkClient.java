@@ -49,6 +49,6 @@ public class SocialNetworkClient {
 
 	private String readFromKeyboard() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return scanner.nextLine();
     }
 }

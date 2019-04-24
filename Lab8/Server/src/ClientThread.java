@@ -47,14 +47,18 @@ public class ClientThread extends Thread {
     private String execute(String request) {
         String response = new String();
         String[] parsedRequest = request.split(" ");
+        System.out.println("Executing...");
         switch (parsedRequest[0]) {
 
             case "register":
 
-                if (parsedRequest.length > 1) {
+                if (parsedRequest.length > 2) {
                     response = "Incalid name! Name must not contain spaces.";
                     break;
                 } else if (parsedRequest.length == 1) {
+                    System.out.println(parsedRequest.length);
+                    for(String i : parsedRequest)
+                        System.out.println(i);
                     response = "Please specify a name.";
                     break;
                 } else {
@@ -65,8 +69,10 @@ public class ClientThread extends Thread {
                         }
                 }
 
+                System.out.println("Success");
                 server.usersAndFriends.put(parsedRequest[1], new ArrayList<>());
                 response = "User" + parsedRequest[1] + " created.";
+                break;
 
             case "login":
                 if (parsedRequest.length < 2) {
