@@ -1,4 +1,4 @@
-package OOPModels;
+package Entity;
 
 abstract class Persons {
     private int id;

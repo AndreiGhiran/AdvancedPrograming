@@ -2,11 +2,13 @@ package Controllers;
 
 import Database.Database;
 
+import javax.persistence.EntityManagerFactory;
 import java.sql.*;
 
 public class PersonController {
 
     int IdGenerator = 1;
+    private EntityManagerFactory emf;
 
     public void create(String name) throws SQLException {
         Connection con = Database.getConnection();

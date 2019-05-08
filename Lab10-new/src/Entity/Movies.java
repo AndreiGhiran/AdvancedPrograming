@@ -1,4 +1,4 @@
-package OOPModels;
+package Entity;
 
 public class Movies {
     private int id;
