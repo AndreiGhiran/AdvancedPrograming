@@ -16,13 +16,12 @@ public class PersonController {
             pstmt.executeUpdate();
             IdGenerator++;
         }
-        con.close();
     }
 
     public Integer findByName(String name) throws SQLException {
         Connection con = Database.getConnection();
         try (Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT id FROM persons WHERE name LIKE '" + name + "'")) {
+             ResultSet rs = stmt.executeQuery("SELECT id FROM persons WHERE name LIKE '%" + name + "%'")) {
             return rs.next() ? rs.getInt(1) : null;
         }
     }
