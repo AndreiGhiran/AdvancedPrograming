@@ -1,9 +1,26 @@
 package Entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="PERSONS")
+
 public class Persons {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)    
+	@Basic(optional = false)    
+	@Column(name = "ID")
     private int id;
+	
+	@Basic(optional = false)
+	@Column(name="NAME")
     private String name;
 
+	public Persons(int personsID, String personName) {
+		setId(personsID);
+		setName(personName);
+	}
+	
     public int getId() {
         return id;
     }

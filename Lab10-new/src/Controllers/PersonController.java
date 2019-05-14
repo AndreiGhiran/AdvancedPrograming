@@ -1,38 +1,38 @@
 package Controllers;
 
-import Database.Database;
+import Entity.Persons;
 
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.*;
 import java.sql.*;
+import java.util.List;
 
 public class PersonController {
 
-    int IdGenerator = 1;
-    private EntityManagerFactory emf;
+	private EntityManagerFactory emf;
 
-    public void create(String name) throws SQLException {
-        Connection con = Database.getConnection();
-        try (PreparedStatement pstmt = con.prepareStatement("INSERT INTO persons values (?, ?)")) {
-            pstmt.setInt(1, IdGenerator);
-            pstmt.setString(2, name);
-            pstmt.executeUpdate();
-            IdGenerator++;
-        }
+	public PersonController(EntityManagerFactory emf) {
+		this.emf = emf;
+	}
+	
+    public void create(Persons person) throws SQLException {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(person);
+        em.getTransaction().commit();
+        em.close();
     }
 
-    public Integer findByName(String name) throws SQLException {
-        Connection con = Database.getConnection();
-        try (Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT id FROM persons WHERE name LIKE '%" + name + "%'")) {
-            return rs.next() ? rs.getInt(1) : null;
-        }
+    public Persons findByName(String personName) throws SQLException {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("select * from persons t where t.name like :name");
+        List<Persons> persons = query.setParameter("name", "'%" + personName + "%'").getResultList();
+        em.close();
+        return persons.isEmpty() ? null : persons.get(0);
     }
-
-    public String findByID(int id) throws SQLException {
-        Connection con = Database.getConnection();
-        try (Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT name FROM persons WHERE id = '" + id + "'")) {
-            return rs.next() ? rs.getString(2) : null;
-        }
-    }
+	/*
+	 * public String findByID(int id) throws SQLException { Connection con =
+	 * Database.getConnection(); try (Statement stmt = con.createStatement();
+	 * ResultSet rs = stmt.executeQuery("SELECT name FROM persons WHERE id = '" + id
+	 * + "'")) { return rs.next() ? rs.getString(2) : null; } }
+	 */
 }

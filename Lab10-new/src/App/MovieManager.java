@@ -7,6 +7,8 @@ import Entity.Persons;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +20,7 @@ public class MovieManager {
     List<Persons> persons = new ArrayList<>();
     List<Movies> movies = new ArrayList<>();
 
-    public void run() {
+    public void run() throws SQLException {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Input command: ");
@@ -47,7 +49,7 @@ public class MovieManager {
         }
     }
 
-    private void createPerson(String personName) {
+    private void createPerson(String personName) throws SQLException {
         Persons person = new Persons(personsID, personName);
         persons.add(person);
         personsID++;
@@ -55,8 +57,9 @@ public class MovieManager {
         personController.create(person);
     }
 
-    private void createMovie(String movieName, String directorName) {
-        Movies movie = new Movies(moviesID, movieName, directorName);
+    private void createMovie(String movieName, String directorID) throws SQLException {
+    	int dirID=Integer.parseInt(directorID);
+        Movies movie = new Movies(moviesID, movieName, dirID);
         movies.add(movie);
         moviesID++;
         MovieController movieController = new MovieController(emf);
@@ -67,7 +70,7 @@ public class MovieManager {
         for(Persons person : persons){
             if(person.getName().equals(directorName)) {
                 MovieController movieController = new MovieController(emf);
-                movieController.listMovies(person);
+                movieController.listMovies(person.getId());
                 return;
             }
         }
@@ -75,6 +78,11 @@ public class MovieManager {
     }
 
     public static void main(String args[]) {
-        new MovieManager().run();
+        try {
+			new MovieManager().run();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }
