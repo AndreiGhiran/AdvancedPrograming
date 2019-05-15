@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="NewPersistenceUnit" value="06dcca9b-70e4-42a2-a9bb-4443ce7eb54d" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
@@ -20,7 +20,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
-    <orderEntry type="library" name="ojdbc14" level="project" />
+    <orderEntry type="library" exported="" name="JPA 2.0-2.0" level="project" />
+    <orderEntry type="library" exported="" name="ojdbc14" level="project" />
+    <orderEntry type="library" name="Simple Logging Facade for Java:1.5.5" level="project" />
+    <orderEntry type="library" name="org.hibernate:hibernate-entitymanager:4.1.1.Final" level="project" />
   </component>
 </module>

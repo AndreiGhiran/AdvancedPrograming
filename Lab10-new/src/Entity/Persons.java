@@ -7,9 +7,8 @@ import javax.persistence.*;
 
 public class Persons {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)    
-	@Basic(optional = false)    
-	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int id;
 	
 	@Basic(optional = false)
@@ -20,7 +19,10 @@ public class Persons {
 		setId(personsID);
 		setName(personName);
 	}
-	
+
+    public Persons() {
+    }
+
     public int getId() {
         return id;
     }

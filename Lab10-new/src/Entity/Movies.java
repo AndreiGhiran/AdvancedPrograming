@@ -4,15 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="MOVIES")
-
 public class Movies {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name="ID")
+    @Column(name="ID")
     private int id;
-	
+
 	@Basic(optional = false)
 	@Column(name="NAME")
     private String name;
@@ -26,7 +24,11 @@ public class Movies {
     	setName(movieName);
     	setDirector_id(directorID);
     }
-	public int getId() {
+
+    public Movies() {
+    }
+
+    public int getId() {
         return id;
     }
 
