@@ -21,6 +21,7 @@ public class MovieManager {
     List<Movies> movies = new ArrayList<>();
 
     public void run() throws SQLException {
+        persons.add(new Persons(3, "bla"));
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Input command: ");
@@ -41,7 +42,7 @@ public class MovieManager {
                 case "help":
                     System.out.println("Available commands: \n" +
                             "create-person <person_name> \n" +
-                            "create-movie <movie_name> <director_name> \n" +
+                            "create-movie <movie_name> <director_id> \n" +
                             "list-movies \n" +
                             "exit");
                     break;
