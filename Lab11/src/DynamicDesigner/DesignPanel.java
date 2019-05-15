@@ -1,4 +1,6 @@
 package DynamicDesigner;
 
-public class DesignPanel {
+import javax.swing.JPanel;
+
+public class DesignPanel extends JPanel{
 }
