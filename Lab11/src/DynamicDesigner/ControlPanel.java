@@ -1,6 +1,11 @@
 package DynamicDesigner;
 
-import javax.swing.*;
+import javax.swing.AbstractButton;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class ControlPanel extends JPanel{
 	
@@ -18,15 +23,29 @@ public class ControlPanel extends JPanel{
 	    private void init() {
 	        add(classNameLabel); add(classNameField); add(textLabel); add(textField); add(createButton);
 	        createButton.addActionListener(e -> {
-	            JComponent comp = createDynamicComponent(classNameField.getText());
-	            setComponentText(comp, textField.getText());
-	            frame.designPanel.addAtRandomLocation(comp);
+	            JComponent comp;
+				try {
+					comp = createDynamicComponent(classNameField.getText());
+					setComponentText(comp, textField.getText());
+		            frame.designPanel.addAtRandomLocation(comp);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 	        });
 	    }
-	    private JComponent createDynamicComponent(String className) {
-		   ...//implement this method
+	    private JComponent createDynamicComponent(String className) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		  // ...//implement this method
+		   Class clazz = Class.forName(className);
+		   JComponent comp = (JComponent) clazz.newInstance();
+		   return comp;
 	    }
 	    private void setComponentText(JComponent comp, String text) {
-		   ...//implement this method
+		   //...//implement this method
+	    	comp.getClass().getName();
+	       if(comp.getClass().getName().contains("Button"))
+	       {
+	    	   ((JButton) comp).setText(text);
+	       }
 	    }
 }

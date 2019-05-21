@@ -1,5 +1,6 @@
 package DynamicDesigner;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class DesignPanel extends JPanel{
@@ -9,7 +10,7 @@ public class DesignPanel extends JPanel{
     
     public DesignPanel(MainFrame frame) {
         this.frame = frame;
-        setPreferredSize(new Dimension(W, H));
+ //       setPreferredSize(new Dimension(W, H));
         setLayout(null);
     }
     public void addAtRandomLocation(JComponent comp) {
