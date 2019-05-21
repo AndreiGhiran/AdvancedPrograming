@@ -42,10 +42,14 @@ public class ControlPanel extends JPanel{
 	    }
 	    private void setComponentText(JComponent comp, String text) {
 		   //...//implement this method
-	    	comp.getClass().getName();
-	       if(comp.getClass().getName().contains("Button"))
-	       {
-	    	   ((JButton) comp).setText(text);
+	       switch (comp.getClass().getName()){
+	    	   case  "javax.swing.JButton":
+	    		   ((JButton) comp).setText(text);
+	    		   break;
+	    	   case  "javax.swing.JLabel":
+	    		   ((JLabel) comp).setText(text);
+	    		   break;
+	    	   default:
 	       }
 	    }
 }
