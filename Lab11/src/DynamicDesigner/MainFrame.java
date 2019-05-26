@@ -1,5 +1,7 @@
 package DynamicDesigner;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -14,6 +16,12 @@ public class MainFrame extends JFrame{
     }
     private void init() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        controlPanel = new ControlPanel(this);
+        designPanel = new DesignPanel(this);
+        this.setLayout(new BorderLayout());
+        
+        this.add(controlPanel,BorderLayout.NORTH);
+        this.add(designPanel,BorderLayout.CENTER);
         //...//create and add to the frame the controlPanel and designPanel objects		
         pack();
     }

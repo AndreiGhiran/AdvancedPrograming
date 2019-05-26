@@ -1,5 +1,8 @@
 package DynamicDesigner;
 
+import java.awt.Dimension;
+import java.util.Random;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
@@ -10,12 +13,13 @@ public class DesignPanel extends JPanel{
     
     public DesignPanel(MainFrame frame) {
         this.frame = frame;
- //       setPreferredSize(new Dimension(W, H));
+        setPreferredSize(new Dimension(W, H));
         setLayout(null);
     }
     public void addAtRandomLocation(JComponent comp) {
-        int x = ...//create a random integer between 0 and W-1
-        int y = ...//create a random integer between 0 and H-1
+    	Random rand = new Random();
+        int x = rand.nextInt(W); //create a random integer between 0 and W-1
+        int y = rand.nextInt(H); //create a random integer between 0 and H-1
         int w = comp.getPreferredSize().width;
         int h = comp.getPreferredSize().height;
         comp.setBounds(x, y, w, h);

@@ -1,5 +1,8 @@
 package DynamicDesigner;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -31,6 +34,18 @@ public class ControlPanel extends JPanel{
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (NoSuchMethodException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SecurityException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IllegalArgumentException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InvocationTargetException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 	        });
 	    }
@@ -40,16 +55,9 @@ public class ControlPanel extends JPanel{
 		   JComponent comp = (JComponent) clazz.newInstance();
 		   return comp;
 	    }
-	    private void setComponentText(JComponent comp, String text) {
+	    private void setComponentText(JComponent comp, String text) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		   //...//implement this method
-	       switch (comp.getClass().getName()){
-	    	   case  "javax.swing.JButton":
-	    		   ((JButton) comp).setText(text);
-	    		   break;
-	    	   case  "javax.swing.JLabel":
-	    		   ((JLabel) comp).setText(text);
-	    		   break;
-	    	   default:
-	       }
+	    	Method method = comp.getClass().getMethod("setText", String.class); 
+	    	method.invoke(comp,text);
 	    }
 }
